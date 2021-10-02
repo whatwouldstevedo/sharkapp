@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_071526) do
+ActiveRecord::Schema.define(version: 2021_10_02_183433) do
+
+  create_table "posts", force: :cascade do |t|
+    t.text "body"
+    t.integer "shark_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shark_id"], name: "index_posts_on_shark_id"
+  end
 
   create_table "sharks", force: :cascade do |t|
     t.string "name"
